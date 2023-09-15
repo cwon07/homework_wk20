@@ -35,4 +35,29 @@ WHERE country.name = 'San Marino'
 
 Serravalle
 
+-- Clue #5
+-- What is the capital city of San Marino?
+SELECT * FROM city
+INNER JOIN country
+ON id = capital
+WHERE city.name = 'San Marino'
 
+San Marino
+
+-- Clue #6
+-- Find a city in South America whose name is like San Marino but doesn't end the same.
+SELECT * FROM city
+INNER JOIN country
+ON countrycode = code
+WHERE city.name LIKE '%San%'
+AND region = 'South America'
+LIMIT 1
+
+San Miguel de Tucuman, Argentina
+
+-- Clue #7
+-- Find a city with a population of 91084
+SELECT * FROM city
+WHERE population = 91084
+
+Santa Monica, CA
